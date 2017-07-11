@@ -4,6 +4,7 @@ options{
     STATIC=false;
                
                  
+                                           
 }
 
 //\u30d1\u30fc\u30b5\u30fc\u30af\u30e9\u30b9\u306e\u5b9a\u7fa9
@@ -27,9 +28,10 @@ TOKEN:
         <HELLO: "hello">
     |   <JAVACC: "javacc">
     |   <JJTREE: "jjtree">
+    |   <NAME: (["A"-"Z", "a"-"z"])+>
 }
 
-//\u69cb\u6587\u306e\u5b9a\u7fa9
+//\u6587\u6cd5\u306e\u5b9a\u7fa9
 ASTHello Hello():
 {/*@bgen(jjtree) Hello */
   ASTHello jjtn000 = new ASTHello(JJTHELLO);
@@ -72,6 +74,7 @@ void Command()       :
 {
         JavaCC()
     |   JJTree()
+    |   Name()
 }
 
 void JavaCC():
@@ -109,3 +112,27 @@ void JJTree():
     }
 /*@egen*/
 }
+
+void Name():
+{/*@bgen(jjtree) Name */
+  ASTName jjtn000 = new ASTName(JJTNAME);
+  boolean jjtc000 = true;
+  jjtree.openNodeScope(jjtn000);
+/*@egen*/ Token t;}
+{/*@bgen(jjtree) Name */
+    try {
+/*@egen*/
+    t = <NAME>/*@bgen(jjtree)*/
+               {
+                 jjtree.closeNodeScope(jjtn000, true);
+                 jjtc000 = false;
+               }
+/*@egen*/ { jjtn000.nodeValue = t.image;}/*@bgen(jjtree)*/
+    } finally {
+      if (jjtc000) {
+        jjtree.closeNodeScope(jjtn000, true);
+      }
+    }
+/*@egen*/
+}
+

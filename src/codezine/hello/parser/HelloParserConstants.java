@@ -16,6 +16,8 @@ public interface HelloParserConstants {
   int JAVACC = 6;
   /** RegularExpression Id. */
   int JJTREE = 7;
+  /** RegularExpression Id. */
+  int NAME = 8;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -30,6 +32,7 @@ public interface HelloParserConstants {
     "\"hello\"",
     "\"javacc\"",
     "\"jjtree\"",
+    "<NAME>",
   };
 
 }

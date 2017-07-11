@@ -3,7 +3,7 @@ package codezine.hello.parser;
 public class HelloParser/*@bgen(jjtree)*/implements HelloParserTreeConstants, HelloParserConstants {/*@bgen(jjtree)*/
   protected JJTHelloParserState jjtree = new JJTHelloParserState();
 
-//構文の定義
+//文法の定義
   final public ASTHello Hello() throws ParseException {
  /*@bgen(jjtree) Hello */
   ASTHello jjtn000 = new ASTHello(JJTHELLO);
@@ -45,6 +45,9 @@ public class HelloParser/*@bgen(jjtree)*/implements HelloParserTreeConstants, He
     case JJTREE:
       JJTree();
       break;
+    case NAME:
+      Name();
+      break;
     default:
       jj_la1[0] = jj_gen;
       jj_consume_token(-1);
@@ -80,6 +83,23 @@ public class HelloParser/*@bgen(jjtree)*/implements HelloParserTreeConstants, He
     }
   }
 
+  final public void Name() throws ParseException {
+ /*@bgen(jjtree) Name */
+  ASTName jjtn000 = new ASTName(JJTNAME);
+  boolean jjtc000 = true;
+  jjtree.openNodeScope(jjtn000);Token t;
+    try {
+      t = jj_consume_token(NAME);
+                 jjtree.closeNodeScope(jjtn000, true);
+                 jjtc000 = false;
+                 jjtn000.nodeValue = t.image;
+    } finally {
+      if (jjtc000) {
+        jjtree.closeNodeScope(jjtn000, true);
+      }
+    }
+  }
+
   /** Generated Token Manager. */
   public HelloParserTokenManager token_source;
   SimpleCharStream jj_input_stream;
@@ -95,7 +115,7 @@ public class HelloParser/*@bgen(jjtree)*/implements HelloParserTreeConstants, He
       jj_la1_init_0();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0xc0,};
+      jj_la1_0 = new int[] {0x1c0,};
    }
 
   /** Constructor with InputStream. */
@@ -215,7 +235,7 @@ public class HelloParser/*@bgen(jjtree)*/implements HelloParserTreeConstants, He
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[8];
+    boolean[] la1tokens = new boolean[9];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -229,7 +249,7 @@ public class HelloParser/*@bgen(jjtree)*/implements HelloParserTreeConstants, He
         }
       }
     }
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

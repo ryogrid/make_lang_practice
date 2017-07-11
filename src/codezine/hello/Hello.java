@@ -21,9 +21,9 @@ public class Hello implements HelloParserVisitor{
     }
 
     public Object visit(ASTHello node, Object data) {
-        String word = node.jjtGetChild(0).jjtAccept(this, null)
-                          .toString();
-        System.out.println("こんにちは " + word +"!!");
+        String word =
+            node.jjtGetChild(0).jjtAccept(this, null).toString();
+        System.out.println("Hello " + word +"!!");
         return null;
     }
 
@@ -33,5 +33,10 @@ public class Hello implements HelloParserVisitor{
 
     public Object visit(ASTJJTree node, Object data) {
         return "イカスJJTree";
+    }
+
+    public Object visit(ASTName node, Object data) {
+        String name = node.nodeValue;
+        return "よくわからん" + name;
     }
 }

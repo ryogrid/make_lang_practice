@@ -7,6 +7,7 @@ public interface HelloParserTreeConstants
   public int JJTVOID = 1;
   public int JJTJAVACC = 2;
   public int JJTJJTREE = 3;
+  public int JJTNAME = 4;
 
 
   public String[] jjtNodeName = {
@@ -14,6 +15,7 @@ public interface HelloParserTreeConstants
     "void",
     "JavaCC",
     "JJTree",
+    "Name",
   };
 }
-/* JavaCC - OriginalChecksum=2d325d3bbe4a95d9354b5a48f434e3f9 (do not edit this line) */
+/* JavaCC - OriginalChecksum=86ad4a3f6e884d02b7cee18c4ded5662 (do not edit this line) */

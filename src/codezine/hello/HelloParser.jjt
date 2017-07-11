@@ -3,6 +3,7 @@ options{
     STATIC=false;
     MULTI=true;
     VISITOR=true;
+    NODE_EXTENDS="codezine.hello.BaseNode";
 }
 
 //パーサークラスの定義
@@ -23,9 +24,10 @@ TOKEN:
         <HELLO: "hello">
     |   <JAVACC: "javacc">
     |   <JJTREE: "jjtree">
+    |   <NAME: (["A"-"Z", "a"-"z"])+>
 }
 
-//構文の定義
+//文法の定義
 ASTHello Hello():
 {}
 {
@@ -37,6 +39,7 @@ void Command() #void :
 {
         JavaCC()
     |   JJTree()
+    |   Name()
 }
 
 void JavaCC():
@@ -50,3 +53,10 @@ void JJTree():
 {
     <JJTREE>
 }
+
+void Name():
+{ Token t;}
+{
+    t = <NAME> { jjtThis.nodeValue = t.image;}
+}
+

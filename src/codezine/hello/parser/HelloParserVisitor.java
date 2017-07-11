@@ -7,5 +7,6 @@ public interface HelloParserVisitor
   public Object visit(ASTHello node, Object data);
   public Object visit(ASTJavaCC node, Object data);
   public Object visit(ASTJJTree node, Object data);
+  public Object visit(ASTName node, Object data);
 }
-/* JavaCC - OriginalChecksum=f30ed291263fa1e7dc3816c7078d6b32 (do not edit this line) */
+/* JavaCC - OriginalChecksum=2e47e2eaeefd19f45cce014d9c1533af (do not edit this line) */
