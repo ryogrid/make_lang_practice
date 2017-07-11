@@ -7,6 +7,8 @@ public interface ExprParserVisitor
   public Object visit(ASTStart node, Object data);
   public Object visit(ASTAdd node, Object data);
   public Object visit(ASTSub node, Object data);
+  public Object visit(ASTMulti node, Object data);
+  public Object visit(ASTDivision node, Object data);
   public Object visit(ASTInteger node, Object data);
 }
-/* JavaCC - OriginalChecksum=572c4514b7b58a4ea278f6d9c44f5e8b (do not edit this line) */
+/* JavaCC - OriginalChecksum=56b24c0c5ac0a2d3f9d3e4230f37d67b (do not edit this line) */

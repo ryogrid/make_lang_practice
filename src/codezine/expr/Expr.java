@@ -47,5 +47,21 @@ public class Expr implements ExprParserVisitor{
         String value = node.nodeValue;
         return Integer.valueOf(value);
     }
+
+    /** 掛け算 */
+    public Object visit(ASTMulti node, Object data) {
+	Integer left = (Integer) node.jjtGetChild(0).jjtAccept(this, null);
+	Integer right = (Integer) node.jjtGetChild(1).jjtAccept(this, null);
+
+	return left * right;
+    }
+
+    /**  割り算 */
+    public Object visit(ASTDivision node, Object data) {
+	Integer left = (Integer) node.jjtGetChild(0).jjtAccept(this, null);
+	Integer right = (Integer) node.jjtGetChild(1).jjtAccept(this, null);
+
+	return left / right;
+    }
 }
 
